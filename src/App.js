@@ -156,7 +156,6 @@ function App() {
       ) : (
         <p>Buscando....</p>
       )}
-
       <Search
         cityValue={city}
         handleOnChange={(event) => setCity(event.target.value)}
