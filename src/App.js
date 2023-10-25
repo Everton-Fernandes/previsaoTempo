@@ -2,16 +2,14 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Search from "./components/search/Search";
 import CardHorizontal from "./components/cards/CardHorizontal";
-import CardVertical from "./components/cards/CardVertical";
 import CardPrincipal from "./components/cards/CardPrincipal";
+import Key from "./components/service/key";
 
 function App() {
   const [periodo, setPeriodo] = useState("")
   const [towns, setTowns] = useState([]);
   const [verify, setVerify] = useState(false);
 
-  const keyDamarys = "ea59e5899382c0a4febf547bf60d6a64";
-  const keyEverton = "fd8d4357a0a5301755001ff2ca63b13c";
   const [forecast, setForecast] = useState(null);
   const [city, setCity] = useState("Santos");
   const [error, setError] = useState(null);
@@ -19,7 +17,7 @@ function App() {
   useEffect(() => {
     const fetchTimeout = setTimeout(() => {
       fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=pt_br&appid=${keyDamarys}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=pt_br&appid=${Key.keyEverton}&units=metric`,
         { method: "GET" }
       )
         .then((resp) => resp.json())
@@ -35,12 +33,14 @@ function App() {
           if (!verify) {
             fetchTowns();
           }
-          let temp = parseInt(data.list[0].dt_txt.slice(11, 13));
-          if (temp >= 12) {
-            setPeriodo("PM")
-          }else{
-            setPeriodo("AM")
-          }
+          // for (let i = 0; i < data.list.length; i++) {
+          //   let temp = parseInt(data.list[i].dt_txt.slice(11, 13));
+          //   if (temp >= 12) {
+          //     setPeriodo("PM")
+          //   }else{
+          //     setPeriodo("AM")
+          //   }
+          // }
         })
         .catch((err) => {
           setError(err);
@@ -88,7 +88,7 @@ function App() {
 
     for (let i = 0; i < cities.length; i++) {
       fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${cities[i]}&lang=pt_br&appid=${keyDamarys}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cities[i]}&lang=pt_br&appid=${keyEverton}&units=metric`,
         { method: "GET" }
       )
         .then((resp) => resp.json())
@@ -116,12 +116,12 @@ function App() {
           temperature={`${forecast.list[0].main.temp
             .toString()
             .slice(0, 2)}°`}
-          hour={`${forecast.list[0].dt_txt.slice(11, 13)} ${periodo}`}
-          hour1={`${forecast.list[1].dt_txt.slice(11, 13)} ${periodo}`}
-          hour2={`${forecast.list[2].dt_txt.slice(11, 13)} ${periodo}`}
-          hour3={`${forecast.list[3].dt_txt.slice(11, 13)} ${periodo}`}
-          hour4={`${forecast.list[4].dt_txt.slice(11, 13)} ${periodo}`}
-          hour5={`${forecast.list[5].dt_txt.slice(11, 13)} ${periodo}`}
+          hour={`${forecast.list[0].dt_txt.slice(11, 16)}`}
+          hour1={`${forecast.list[1].dt_txt.slice(11, 16)}`}
+          hour2={`${forecast.list[2].dt_txt.slice(11, 16)}`}
+          hour3={`${forecast.list[3].dt_txt.slice(11, 16)}`}
+          hour4={`${forecast.list[4].dt_txt.slice(11, 16)}`}
+          hour5={`${forecast.list[5].dt_txt.slice(11, 16)}`}
           descriptionCardVertical={forecast.list[0].weather[0].description}
           descriptionCardVertical1={forecast.list[1].weather[0].description}
           descriptionCardVertical2={forecast.list[2].weather[0].description}
