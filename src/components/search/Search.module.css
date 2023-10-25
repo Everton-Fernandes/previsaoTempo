@@ -1,0 +1,35 @@
+.divPrincipal{
+    padding: .2em 0em;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: .08em solid;
+    border-color: #323232;
+    border-radius: .4em;
+}
+.divPrincipal:hover{
+    box-shadow: .05em .1em #323232 ;
+}
+
+.inputProcura{
+    width: 400px;
+    border: 0;
+    border-color: transparent;
+}
+.inputProcura:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    border-color: transparent;
+}
+.inputProcura::placeholder{
+    color: #32323252 ;
+}
+
+.imgLupa{
+    border: 0;
+    border-color: transparent;
+    width: 20px;
+    height: 20px;
+}

@@ -1,4 +1,10 @@
 .App {
+  background-color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5em 2em;
   text-align: center;
 }
 

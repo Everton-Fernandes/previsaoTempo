@@ -1,0 +1,27 @@
+.container{
+    margin: .2em;
+    padding: .2em 0em;
+    display: flex;
+    width: 500px;
+    border: .08em solid;
+    border-color: #323232;
+    border-radius: .4em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.container:hover{
+    box-shadow: .05em .1em #323232 ;
+}
+
+.cityState{
+    color: #323232;
+    font-size: larger;
+    font-weight: bold;
+}
+.temperature{
+    color: #323232;
+    font-size: larger;
+    font-weight: bold;
+}
