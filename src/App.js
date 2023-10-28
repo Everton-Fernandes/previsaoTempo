@@ -101,7 +101,7 @@ function App() {
           temperatureMax={`${forecast.list[0].main.temp_max
             .toString()
             .slice(0, 2)}°`}
-          city={city}
+          city={forecast.city.name}
           date={`${forecast.list[0].dt_txt.slice(
             8,
             10
