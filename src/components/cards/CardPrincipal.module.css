@@ -2,10 +2,9 @@
   margin: 0.2em;
   padding: 0em 1em;
   display: flex;
-  width: 500px;
-  border: 0.08em solid;
-  border-color: #323232;
-  border-radius: 0.4em;
+  width: 50%;
+  border-color: #d1d1d1;
+  border-radius: 1em;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -15,7 +14,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  width: 500px;
+  width: 100%;
   border-radius: 0.4em;
   flex-direction: row;
   align-items: center;
@@ -28,10 +27,11 @@
   justify-content: space-between;
 }
 .temperatureBody {
+  color: #d1d1d1;
   font-size: 80px;
 }
 .cityBody {
-  color: #000;
+  color: #d1d1d1;
   text-align: start;
   font-size: 24px;
   font-style: normal;
@@ -44,7 +44,7 @@
 }
 .dateBody {
   text-align: start;
-  color: #000;
+  color: #d1d1d1;
   margin: 0;
   padding: 0;
   font-size: 18px;
@@ -57,7 +57,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  width: 500px;
+  width: 100%;
   border-radius: 0.4em;
   flex-direction: row;
   align-items: center;
@@ -66,7 +66,7 @@
 .description {
   margin: 0;
   padding: 0;
-  color: #000;
+  color: #d1d1d1;
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
@@ -75,7 +75,7 @@
 .temperatureMinMax {
   margin: 0;
   padding: 0;
-  color: #000;
+  color: #d1d1d1;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -89,7 +89,7 @@ hr {
   margin: 0.2em;
   padding: 0.2em 0em;
   display: flex;
-  width: 500px;
+  width: 100%;
   border-radius: 0.4em;
   flex-direction: row;
   align-items: center;

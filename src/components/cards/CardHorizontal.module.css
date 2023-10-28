@@ -2,26 +2,30 @@
     margin: .2em;
     padding: .2em 0em;
     display: flex;
-    width: 500px;
-    border: .08em solid;
-    border-color: #323232;
-    border-radius: .4em;
+    width: 50%;
+    border: .08em;
+    border-style: none none solid none;
+    border-color: #d1d1d1;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 
 }
 .container:hover{
-    box-shadow: .05em .1em #323232 ;
+    border: .08em solid;
+    border-color: #d1d1d1;
+    border-radius: 0.8em;
+
+    box-shadow: .0em .1em #d1d1d1 ;
 }
 
 .cityState{
-    color: #323232;
+    color: #d1d1d1;
     font-size: larger;
     font-weight: bold;
 }
 .temperature{
-    color: #323232;
+    color: #d1d1d1;
     font-size: larger;
     font-weight: bold;
 }

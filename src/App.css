@@ -1,10 +1,10 @@
 .App {
-  background-color: white;
+  background-color: rgb(8, 94, 116);
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 5em 2em;
+  padding: 1em 2em 2em 5em;
   text-align: center;
 }
 
@@ -17,6 +17,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.textWhite{
+  color: white;
+}
+.textBlack{
+  color: black;
 }
 
 .App-header {

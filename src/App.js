@@ -3,21 +3,19 @@ import { useState, useEffect } from "react";
 import Search from "./components/search/Search";
 import CardHorizontal from "./components/cards/CardHorizontal";
 import CardPrincipal from "./components/cards/CardPrincipal";
-import Key from "./components/service/key";
 
 function App() {
-  const [periodo, setPeriodo] = useState("")
   const [towns, setTowns] = useState([]);
   const [verify, setVerify] = useState(false);
 
   const [forecast, setForecast] = useState(null);
-  const [city, setCity] = useState("Santos");
+  const [city, setCity] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTimeout = setTimeout(() => {
       fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=pt_br&appid=${Key.keyEverton}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=pt_br&appid=${keyEverton}&units=metric`,
         { method: "GET" }
       )
         .then((resp) => resp.json())
@@ -33,14 +31,6 @@ function App() {
           if (!verify) {
             fetchTowns();
           }
-          // for (let i = 0; i < data.list.length; i++) {
-          //   let temp = parseInt(data.list[i].dt_txt.slice(11, 13));
-          //   if (temp >= 12) {
-          //     setPeriodo("PM")
-          //   }else{
-          //     setPeriodo("AM")
-          //   }
-          // }
         })
         .catch((err) => {
           setError(err);
@@ -112,10 +102,14 @@ function App() {
             .toString()
             .slice(0, 2)}°`}
           city={city}
-          date={`${forecast.list[0].dt_txt.slice(0, 10)}`}
-          temperature={`${forecast.list[0].main.temp
-            .toString()
-            .slice(0, 2)}°`}
+          date={`${forecast.list[0].dt_txt.slice(
+            8,
+            10
+          )}-${forecast.list[0].dt_txt.slice(
+            5,
+            7
+          )}-${forecast.list[0].dt_txt.slice(0, 4)}`}
+          temperature={`${forecast.list[0].main.temp.toString().slice(0, 2)}°`}
           hour={`${forecast.list[0].dt_txt.slice(11, 16)}`}
           hour1={`${forecast.list[1].dt_txt.slice(11, 16)}`}
           hour2={`${forecast.list[2].dt_txt.slice(11, 16)}`}
@@ -136,25 +130,25 @@ function App() {
           imageCardVertical5={`http://openweathermap.org/img/wn/${forecast.list[5].weather[0].icon}.png`}
           temperatureCardVertical={`${forecast.list[0].main.temp
             .toString()
-            .slice(0, 2)}°C`}
+            .slice(0, 2)}°`}
           temperatureCardVertical1={`${forecast.list[1].main.temp
             .toString()
-            .slice(0, 2)}°C`}
+            .slice(0, 2)}°`}
           temperatureCardVertical2={`${forecast.list[2].main.temp
             .toString()
-            .slice(0, 2)}°C`}
+            .slice(0, 2)}°`}
           temperatureCardVertical3={`${forecast.list[3].main.temp
             .toString()
-            .slice(0, 2)}°C`}
+            .slice(0, 2)}°`}
           temperatureCardVertical4={`${forecast.list[4].main.temp
             .toString()
-            .slice(0, 2)}°C`}
+            .slice(0, 2)}°`}
           temperatureCardVertical5={`${forecast.list[5].main.temp
             .toString()
-            .slice(0, 2)}°C`}
+            .slice(0, 2)}°`}
         />
       ) : (
-        <p>Buscando....</p>
+        <p className="textWhite">Buscando....</p>
       )}
       <Search
         cityValue={city}
@@ -168,19 +162,23 @@ function App() {
           image={`http://openweathermap.org/img/wn/${forecast.list[0].weather[0].icon}.png`}
           altweather={forecast.list[0].weather[0].description}
           city={forecast.city.name}
-          temperature={`${forecast.list[0].main.temp.toString().slice(0, 2)}°C`}
+          temperature={`${forecast.list[0].main.temp.toString().slice(0, 2)}°`}
         />
       ) : (
-        <p>Buscando....</p>
+        <p className="textWhite">Buscando....</p>
       )}
 
       {towns.map((town) => {
         return (
           <CardHorizontal
+            handleOnClick={() => {
+              window.scrollTo(0, 0)
+              setCity(town.city.name)
+            }}
             image={`http://openweathermap.org/img/wn/${town.list[0].weather[0].icon}.png`}
             altweather={town.list[0].weather[0].description}
             city={town.city.name}
-            temperature={`${town.list[0].main.temp.toString().slice(0, 2)}°C`}
+            temperature={`${town.list[0].main.temp.toString().slice(0, 2)}°`}
           />
         );
       })}
