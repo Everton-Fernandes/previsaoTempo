@@ -1,3 +1,10 @@
+
+### Projeto feito para aplicação de estudos feitos em reactJs consumindo uma API externa
+
+### O projeto conta com uma barra de busca e com cards clicaveis das capitais do Brasil
+
+![print do site](image.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
